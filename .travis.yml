@@ -1,0 +1,46 @@
+dist: bionic
+language: python
+python:
+- '3.7'
+- '3.8'
+cache:
+  pip: true
+  directories:
+  - "$HOME/db/"
+  - "${TRAVIS_BUILD_DIR}/scripts/output/"
+git:
+  depth: 2
+env:
+  global:
+  - secure: w7Ov+kj/t9GizPuaY3AxEUCxwUecfrYiqt6W0jxrw8jPqwJBKb4zSOtPob8i/DQ+6yBPCQDnbjHkdWmWVkYxFRAxoXX8XkzhEWYs0ZwKcSuAQ7eNYNel9S9JIQE3sbB+H74XggX43ghytjI7KaWZZH67/MUUZg5XX2ExjKch7D7M2c5Bb5YzKHGl8zteZ+sHxpo+4Axf0my33EqhGl/0TTNJPfE94a6+QyiPwifA2HubL7uHT1tsCMwF1wvMAYkNC1z371cKAG6nSVRv+RPo1aTOtxV+J33VPwlCZOVYH4aIC2jI0rU/U3/rDyA6wjv4xGHlK9i/hEdEUzdhKNzcskuTEctzlvH5YuB3498hV/7Q58/CpwC50rRTNcR2VfpmfzFwUbKet2yWOaQzS3XAMIkSpwG44EZJ1QdsJmRXvCSFq9zM240C9igZu/gELHj7Fqv60V/Eq24FXjOvtTxvdIc7lQw2HxjyDxuhmyyvW/wPFHXzE5D5fIQmSGNnHWsdyyp6//puYg69jpusgpvVbz+LU7TQ3yQYGwlrdL0Lqry7iM48yk8kanaevr+GaDkJ+d1fRdmBLovHSvMcSm/FlRL4I+EEd/AHqOBrAnqjvlGMIrG4aiFWfAsy9+t81mL6bkFI7bGSzzazYz6QFP2jwt1SGTCKRMhyl+FSFNG8dm0=
+  - GIT_NAME: Spirillen
+  - GIT_EMAIL: 44526987+spirillen@users.noreply.github.com
+  - TRAVIS_REPO_SLUG: dns-test/rpz.mypdns.cloud
+  - TZ: Europe/Berlin
+  - printf "\nSetting Variables\n"
+  - script_dir="${TRAVIS_BUILD_DIR}/scripts"
+  - testdir="${TRAVIS_BUILD_DIR}/test_data"
+  - testfile="${testdir}/rpz.mypdns.cloud.list"
+  - whitelist="${testdir}/whitelist.txt"
+  - tag=$(date '+%F %X %Z %z')
+addons:
+  mariadb: '10.4'
+  apt:
+    packages:
+    - dos2unix
+    - msttcorefonts
+    - lsof
+    - pdns-recursor
+    update: true
+install:
+- pip3 install --upgrade pip
+- pip3 install pyfunceble-dev==2.53.6
+matrix:
+  fast_finish: true
+sudo: required
+script:
+- sudo systemctl restart mysql.service pdns-recursor.service
+- bash scripts/test.sh && bash scripts/pyfunceble.sh && sudo mysqldump --user=pyfunceble
+  --password=pyfunceble --opt pyfunceble > ${HOME}/db/pyfunceble.sql
+0ec12e4f4ac9fb5b3ce32fd1938c137edeff84c2:
+  secure: w7Ov+kj/t9GizPuaY3AxEUCxwUecfrYiqt6W0jxrw8jPqwJBKb4zSOtPob8i/DQ+6yBPCQDnbjHkdWmWVkYxFRAxoXX8XkzhEWYs0ZwKcSuAQ7eNYNel9S9JIQE3sbB+H74XggX43ghytjI7KaWZZH67/MUUZg5XX2ExjKch7D7M2c5Bb5YzKHGl8zteZ+sHxpo+4Axf0my33EqhGl/0TTNJPfE94a6+QyiPwifA2HubL7uHT1tsCMwF1wvMAYkNC1z371cKAG6nSVRv+RPo1aTOtxV+J33VPwlCZOVYH4aIC2jI0rU/U3/rDyA6wjv4xGHlK9i/hEdEUzdhKNzcskuTEctzlvH5YuB3498hV/7Q58/CpwC50rRTNcR2VfpmfzFwUbKet2yWOaQzS3XAMIkSpwG44EZJ1QdsJmRXvCSFq9zM240C9igZu/gELHj7Fqv60V/Eq24FXjOvtTxvdIc7lQw2HxjyDxuhmyyvW/wPFHXzE5D5fIQmSGNnHWsdyyp6//puYg69jpusgpvVbz+LU7TQ3yQYGwlrdL0Lqry7iM48yk8kanaevr+GaDkJ+d1fRdmBLovHSvMcSm/FlRL4I+EEd/AHqOBrAnqjvlGMIrG4aiFWfAsy9+t81mL6bkFI7bGSzzazYz6QFP2jwt1SGTCKRMhyl+FSFNG8dm0=
