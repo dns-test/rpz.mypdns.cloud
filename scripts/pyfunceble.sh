@@ -13,7 +13,7 @@
 # **********************
 # Setting date variables
 # **********************
-source ${TRAVIS_BUILD_DIR}/scripts/variables.sh
+source "${TRAVIS_BUILD_DIR}/scripts/variables.sh"
 
 # **********************
 # Run PyFunceble Testing

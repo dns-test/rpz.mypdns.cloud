@@ -18,7 +18,7 @@ MySqlImport () {
 	sudo mysql -u root -h localhost -e "GRANT ALL PRIVILEGES ON pyfunceble.* TO 'pyfunceble'@'localhost';"
 	if [ -f "${HOME}/db/pyfunceble.sql" ]
 	then
-		sudo mysql --user=pyfunceble --password=pyfunceble pyfunceble < "${HOME}/db/pyfunceble.sql"
+		mysql --user=pyfunceble --password=pyfunceble pyfunceble < "${HOME}/db/pyfunceble.sql"
 	fi
 	
 	printf "\nMySql Import DONE!\n"
@@ -30,8 +30,8 @@ MySqlExport () {
 	printf "\nMysql Export...\n"
 	if [ ! -d "${HOME}/db/" ]
 	then
-		sudo mkdir -p ${HOME}/db/
+		sudo mkdir -p "${HOME}/db/"
 	fi
-	sudo mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${HOME}/db/pyfunceble.sql
+	mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > "${HOME}/db/pyfunceble.sql"
 	printf "\nMySql Export done...\n"
 }

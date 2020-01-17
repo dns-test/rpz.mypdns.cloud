@@ -28,7 +28,7 @@ printf "\nMySql import...\n"
 	sudo mysql -u root -h localhost -e "GRANT ALL PRIVILEGES ON pyfunceble.* TO 'pyfunceble'@'localhost';"
 	if [ -f "${HOME}/db/pyfunceble.sql" ]
 	then
-		sudo mysql --user=pyfunceble --password=pyfunceble pyfunceble < "${HOME}/db/pyfunceble.sql"
+		mysql --user=pyfunceble --password=pyfunceble pyfunceble < "${HOME}/db/pyfunceble.sql"
 	fi
 printf "\nMySql Import DONE\n"
 
