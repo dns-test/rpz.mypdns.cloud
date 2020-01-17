@@ -23,7 +23,7 @@ printf "\nRunning PyFunceble\n"
 
 RunPyFunceble () {
 
-    #tag=$(date '+%F %X %Z %z')
+    tag=$(date '+%F %X %Z %z')
     ulimit -u
     cd "${script_dir}"
 
