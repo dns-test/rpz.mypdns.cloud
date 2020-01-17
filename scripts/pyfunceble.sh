@@ -42,6 +42,7 @@ RunPyFunceble () {
         --autosave-minutes 20 \
         --ci-branch master \
         --ci-distribution-branch master \
+	--cmd-before-end "bash ${TRAVIS_BUILD_DIR}/scripts/commit.sh" \
         --commit-autosave-message "${tag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
         --commit-results-message "${tag}.${TRAVIS_BUILD_NUMBER}" \
          -f "${testfile}"
