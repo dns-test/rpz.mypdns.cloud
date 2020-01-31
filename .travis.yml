@@ -18,16 +18,17 @@ git:
 env:
   global:
     #- secure: "RWSYZhUgjpL/m2qGFXwQdRztK+HHlXKV2km5mcjdIy3pALinnopVr1QpB+R/OmNEmDpx5eGUrRehseCDR6zXMx9ReLCgGmzkZGT2n6jqc9yUyR2q4AoPpljGTAWvuroBPus8v+bRhS4YzaiPrpUeFNksxKf8QJcJHL9yBD61XRLyW/WKxfCF1WCPv5PYjdVJSerqIuk9EET4ZIA73gtH1aKtTLTqXUzg+ZrVXHlP3BAtWJvd5J1+oF6/GjAY1iq5ulAxhDDeqGLjR0y1ODKSppUEC/Keisc+OyuS1HmDK7sfafzXsr6bBuZHi4yCRkTv9Yl9aQb8ulUaymBse5Ton02Q/tBy9fDuCM6/PgtDOYvjAxsI1UJWXcRgHuOsO1QUM/LdOG1pigTgWJdagzKg5JuDtnXtjfjtz36FFDxkDsbfP9BhIYxFZlvDGV1FhOpjWXYBnZJy3VcXWvSL7VacJ/hBIOhpo3OqImLnI++9a902NX/IdrWVjft7SgzIqyR18m9SzSW9PR+M0lW7q6F6pZuGp+lbl3231HMdlQFiu1AKqRqIDhJEket92BUqj7iYAlZUrQqAJQggAyLs8L/qIOl390D0dlni6xXc41p61m6sM/IFduCjGaSd3/XQJSAR+HR84CNxIKt8QlZRF/z3/Vqskx8FhHTdI9gR+cRdmEg="
-    - secure: "av7eQ6L/TybtjAnhrtGVR9ja6dZMLLSHK8fljuzl4MdYv4/OI0ftTXm2o6JZNQ6jfwoWu3kRQCcrWYXLEPvWB4qaAcjyd9Wohm/1U1zcgOK6Gb3zIohKkDW0Vc5ciZp8joDrVMKGNgh49IPElRUYUIZAC/uWKYAcKZQhzo0UM5v1zIOBrL/WoRZ2KaOwva+vPbIlUOSwe7k0mg4aJghD7YqJwmb81H/TW2wP2xvksnnF5fKW8ODGCpRK0flgftxVx1tZyIVgGfe4ach2PLKaZa0F24ifyRBdPNAeCXGsC/9EcPePlJXuVVb91jmdUhq9Zcc1NZOqOGhvGUKKkvcizG0JgCgu9/DgahxKLiu2h20a+mvKGATZm2Q8FF4YjHpNMyeF3eUyTwrjIdS7+/7XD6igg/zD/i9jaXPwQEFvgYWCuAsqcAXQHPAUM41w3ifqmDlJhwmPIXsdf+OlPCvlhEiZBZWXmZjK96EMFRtdsdbt2RcC2jHXLeu8eCrAkoebyi/jXO7e+w9K+40U1eszH3diBSz7uCJvsyL0m0mZ1cq88nCjDl/yDeBiuCp+1MzlK0axeLj/YxUvgAEQnhGUEXm/Iyc6Z0JJaBS5SxCKMTEL9R7ApPtoqGdW88OWFVanEvNTJK+MhzUcMJuOqaSNY2mDkYQW5/njjNrWjFCFk64="
+    #- secure: "av7eQ6L/TybtjAnhrtGVR9ja6dZMLLSHK8fljuzl4MdYv4/OI0ftTXm2o6JZNQ6jfwoWu3kRQCcrWYXLEPvWB4qaAcjyd9Wohm/1U1zcgOK6Gb3zIohKkDW0Vc5ciZp8joDrVMKGNgh49IPElRUYUIZAC/uWKYAcKZQhzo0UM5v1zIOBrL/WoRZ2KaOwva+vPbIlUOSwe7k0mg4aJghD7YqJwmb81H/TW2wP2xvksnnF5fKW8ODGCpRK0flgftxVx1tZyIVgGfe4ach2PLKaZa0F24ifyRBdPNAeCXGsC/9EcPePlJXuVVb91jmdUhq9Zcc1NZOqOGhvGUKKkvcizG0JgCgu9/DgahxKLiu2h20a+mvKGATZm2Q8FF4YjHpNMyeF3eUyTwrjIdS7+/7XD6igg/zD/i9jaXPwQEFvgYWCuAsqcAXQHPAUM41w3ifqmDlJhwmPIXsdf+OlPCvlhEiZBZWXmZjK96EMFRtdsdbt2RcC2jHXLeu8eCrAkoebyi/jXO7e+w9K+40U1eszH3diBSz7uCJvsyL0m0mZ1cq88nCjDl/yDeBiuCp+1MzlK0axeLj/YxUvgAEQnhGUEXm/Iyc6Z0JJaBS5SxCKMTEL9R7ApPtoqGdW88OWFVanEvNTJK+MhzUcMJuOqaSNY2mDkYQW5/njjNrWjFCFk64="
     - GIT_NAME: Spirillen
     - GIT_EMAIL: "44526987+spirillen@users.noreply.github.com"
     - TRAVIS_REPO_SLUG: dns-test/rpz.mypdns.cloud
     - TZ: Europe/Berlin
-    - script_dir="${TRAVIS_BUILD_DIR}/scripts"
-    - testdir="${TRAVIS_BUILD_DIR}/test_data"
-    - testfile="${testdir}/rpz.mypdns.cloud.list"
-    - whitelist="${testdir}/whitelist.txt"
-    - tag=$(date '+%F %X %Z %z')
+    - PYFUNCEBLE_AUTO_CONFIGURATION: YES
+    #- script_dir="${TRAVIS_BUILD_DIR}/scripts"
+    #- testdir="${TRAVIS_BUILD_DIR}/test_data"
+    #- testfile="${testdir}/rpz.mypdns.cloud.list"
+    #- whitelist="${testdir}/whitelist.txt"
+    #- tag=$(date '+%F %X %Z %z')
 
 addons:
   mariadb: '10.4'
@@ -41,7 +42,7 @@ addons:
   
 install:
   - pip3 install --upgrade pip
-  - pip3 install pyfunceble-dev==2.53.6
+  - pip3 install pyfunceble-dev==2.57.1
   #- pip3 install git+https://github.com/funilrys/PyFunceble.git@dev
   #- pip3 install ultimate-hosts-blacklist-whitelist
 
