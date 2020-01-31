@@ -14,7 +14,7 @@
 # Setting date variables
 # **********************
 #printf "\nSetting Variables\n"
-source ${TRAVIS_BUILD_DIR}/scripts/variables.sh
+source "${TRAVIS_BUILD_DIR}/scripts/variables.sh"
 
 # ******************
 # Database functions
@@ -50,7 +50,7 @@ AXFRImport () {
 }
 AXFRImport
 
-printf "\nWe have to test $(wc -l < ${testfile}) DNS records.
+printf "\nWe have to test $(wc -l < "${testfile}") DNS records.
 
 	You can read more about how to use this privacy enhanced
 	DNS firewall driven by Response Policy Zones at
