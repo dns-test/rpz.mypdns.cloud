@@ -21,6 +21,6 @@ else
 	printf "\nNo dead domains found\n"
 fi
 
-cat "${HOME}/db/pyfunceble.sql"
+head "${HOME}/db/pyfunceble.sql"
 
 exit ${?}
