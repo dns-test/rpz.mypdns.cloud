@@ -37,7 +37,7 @@ RunPyFunceble () {
 
     PyFunceble --version
     PyFunceble --ci -q -ex --plain --idna -db -h --http \
-	--database-type mariadb -m -p 4 \
+	--database-type mariadb -m -p $(nproc --ignore=1) \
         --hierarchical \
         --autosave-minutes 20 \
         --ci-branch master \
