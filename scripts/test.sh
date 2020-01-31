@@ -50,11 +50,11 @@ AXFRImport () {
 }
 AXFRImport
 
-printf "\nPrint head of test file\n"
+printf "\nWe have to test $(wc -l < ${testfile}) DNS records.
 
-head "${testfile}"
-
-printf "\nWe have to test $(wc -l < ${testfile}) DNS records\n"
+	You can read more about how to use this privacy enhanced
+	DNS firewall driven by Response Policy Zones at
+	https://www.mypdns.org/wiki/RpzList\n"
 
 #ImportWhiteList () {
 	#printf "\nImporting whitelist\n"
