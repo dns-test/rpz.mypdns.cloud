@@ -24,7 +24,7 @@ printf "\nRunning PyFunceble\n"
 RunPyFunceble () {
 
     tag=$(date '+%F %X %Z %z')
-    ulimit -u
+
     cd "${script_dir}"
 
     hash PyFunceble
@@ -39,7 +39,7 @@ RunPyFunceble () {
     PyFunceble --ci -q -ex --plain --idna -db -h --http \
 	--database-type mariadb -m -p $(nproc --ignore=1) \
         --hierarchical \
-        --autosave-minutes 2 \
+        --autosave-minutes 35 \
         --ci-branch master \
         --ci-distribution-branch master \
 	--cmd-before-end "bash ${TRAVIS_BUILD_DIR}/scripts/commit.sh" \
