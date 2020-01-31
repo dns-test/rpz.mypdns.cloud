@@ -39,7 +39,7 @@ RunPyFunceble () {
     PyFunceble --ci -q -ex --plain --idna -db -h --http \
 	--database-type mariadb -m -p $(nproc --ignore=1) \
         --hierarchical \
-        --autosave-minutes 20 \
+        --autosave-minutes 2 \
         --ci-branch master \
         --ci-distribution-branch master \
 	--cmd-before-end "bash ${TRAVIS_BUILD_DIR}/scripts/commit.sh" \
