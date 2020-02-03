@@ -53,6 +53,7 @@ printf "\nImporting AXFR\n"
 ImportRPZ () {
 	mysql -u"${imp_user}" -p"${imp_pw}" -h"${imp_host}" -B -N -e "SELECT TRIM(TRAILING '.rpz.mypdns.cloud' FROM name) AS name FROM pdns.records WHERE \`type\` = 'CNAME' AND domain_id = '36' LIMIT 10;" > "${testfile}"
 }
+ImportRPZ
 
 printf "\nWe have to test $(wc -l < "${testfile}") DNS records.
 
