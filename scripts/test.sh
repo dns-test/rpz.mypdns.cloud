@@ -14,7 +14,7 @@
 # Setting date variables
 # **********************
 printf "\nImporting Variables\n"
-source "./variables.sh"
+source "${TRAVIS_BUILD_DIR}/scripts/variables.sh"
 
 printf "\nList Variables\n"
 ls -lha "${ROOT_DIR}/scripts/variables.sh"
