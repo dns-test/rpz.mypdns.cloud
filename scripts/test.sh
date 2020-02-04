@@ -39,12 +39,12 @@ printf "\nMySql Import DONE\n"
 printf "\nImporting AXFR\n"
 
 #AXFRImport () {
-	#truncate -s 0 "${testfile}"
+	#truncate -s 0 "${SOURCE_FILE}"
 	
     	#dig axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5353 +noidnin +noidnout \
 		#| grep -F "CNAME" | grep -vE "(^(\*\.|$))" \
 		#| sed 's/\.rpz\.mypdns\.cloud.*$//;s/^\s*\(.*[^ \t]\)\(\s\+\)*$/\1/' \
-		#> "${testfile}"
+		#> "${SOURCE_FILE}"
 
 	#printf "\nImporting AXFR... DONE!\n"
 	##exit ${?}
@@ -52,11 +52,11 @@ printf "\nImporting AXFR\n"
 #AXFRImport
 
 ImportRPZ () {
-	mysql -u"${imp_user}" -p"${imp_pw}" -h"${imp_host}" -B -N -e "SELECT TRIM(TRAILING '.rpz.mypdns.cloud' FROM name) AS name FROM pdns.records WHERE \`type\` = 'CNAME' AND domain_id = '36' AND content = '.' LIMIT 10000000;" > "${testfile}"
+	mysql -u"${imp_user}" -p"${imp_pw}" -h"${imp_host}" -B -N -e "SELECT TRIM(TRAILING '.rpz.mypdns.cloud' FROM name) AS name FROM pdns.records WHERE \`type\` = 'CNAME' AND domain_id = '36' AND content = '.' LIMIT 10000000;" > "${SOURCE_FILE}"
 }
 ImportRPZ
 
-printf "\nWe have to test $(wc -l < "${testfile}") DNS records.
+printf "\nWe have to test $(wc -l < "${SOURCE_FILE}") DNS records.
 
 	You can read more about how to use this privacy enhanced
 	DNS firewall driven by Response Policy Zones at
@@ -75,7 +75,7 @@ printf "\nWe have to test $(wc -l < "${testfile}") DNS records.
         #then
 			#printf "\nRunning whitelist\n"
             #hash uhb_whitelist
-            #uhb_whitelist -f "${testfile}" -o "${testfile}"
+            #uhb_whitelist -f "${SOURCE_FILE}" -o "${SOURCE_FILE}"
 	#else
 		#printf "\nSkipping whitelist\n"
     #fi

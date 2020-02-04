@@ -22,7 +22,6 @@ else
 fi
 
 SCRIPT_DIR="${ROOT_DIR}/scripts"
-  
 
 TEST_DIR="${ROOT_DIR}/test_data"
 

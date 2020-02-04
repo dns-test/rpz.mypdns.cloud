@@ -15,11 +15,11 @@
 # **********************
 source "scripts/variables.sh"
 
-printf "\nLists testfile\n"
-ls -lha "${testfile}"
+printf "\nLists SOURCE_FILE\n"
+ls -lha "${SOURCE_FILE}"
 
-printf "\nHead testfile\n"
-head "${testfile}"
+printf "\nHead SOURCE_FILE\n"
+head "${SOURCE_FILE}"
 
 # **********************
 # Run PyFunceble Testing
@@ -51,7 +51,7 @@ RunPyFunceble () {
 	--cmd-before-end "bash ${TRAVIS_BUILD_DIR}/scripts/commit.sh" \
         --commit-autosave-message "${tag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
         --commit-results-message "${tag}.${TRAVIS_BUILD_NUMBER}" \
-         -f "${testfile}"
+         -f "${SOURCE_FILE}"
 }
 
 RunPyFunceble

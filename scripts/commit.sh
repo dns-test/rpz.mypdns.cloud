@@ -8,7 +8,7 @@
 # Please forward any additions, corrections or comments by logging an issue at
 # https://gitlab.com/my-privacy-dns/support/issues
 
-#source ${TRAVIS_BUILD_DIR}/scripts/variables.sh
+source "scripts/variables.sh"
 
 printf "\n\tRunning Commit.sh\n"
 
@@ -18,9 +18,16 @@ then
   grep -Ev "^($|#)" "${script_dir}/output/domains/INACTIVE/list" \
 	> "${TRAVIS_BUILD_DIR}/inactive_domains.txt"
 else
-	printf "\nNo dead domains found\n"
+	printf "\nNo INACTIVE domains found\n"
 fi
 
-head "${HOME}/db/pyfunceble.sql"
+if [ -f "${script_dir}/output/domains/INVALID/list" ]
+then
+  printf "\nExporting dead domains\n"
+  grep -Ev "^($|#)" "${script_dir}/output/domains/INVALID/list" \
+	> "${TRAVIS_BUILD_DIR}/inactive_domains.txt"
+else
+	printf "\nNo INVALID domains found\n"
+fi
 
 exit ${?}
