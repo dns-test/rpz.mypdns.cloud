@@ -1,21 +1,16 @@
 #!/usr/bin/env bash
-# **********************
-# Run PyFunceble Testing
-# **********************
+
 # Created by: @spirillen
-# Copyright: My Privacy DNS (https://www.mypdns.org/wiki/License)
+# Copyright: https://www.mypdns.org/
+# License: My Privacy DNS (https://www.mypdns.org/wiki/License)
 
-# ****************************************************************
-# This test script uses PyFunceble by @funilrys aka Nissar Chababy
-# Find PyFunceble at: https://github.com/funilrys/PyFunceble
-# ****************************************************************
+# Please forward any additions, corrections or comments by logging an issue at
+# https://gitlab.com/my-privacy-dns/support/issues
 
 # **********************
-# Setting date variables
+# Setting data variables
 # **********************
-printf "\nImporting Variables\n"
 source "scripts/variables.sh"
-
 
 # ******************
 # Database functions

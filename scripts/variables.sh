@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
+# Created by: @spirillen
+# Copyright: https://www.mypdns.org/
+# License: My Privacy DNS (https://www.mypdns.org/wiki/License)
+
+# Please forward any additions, corrections or comments by logging an issue at
+# https://gitlab.com/my-privacy-dns/support/issues
+
 # **********************
-# Setting date variables
+# Setting data variables
 # **********************
 
 TEST_FILE="rpz.mypdns.cloud.list"
@@ -27,17 +34,20 @@ TEST_DIR="${ROOT_DIR}/test_data"
 
 SOURCE_FILE="${TEST_DIR}/${TEST_FILE}"
 
-printf "\nROOT_DIR\n"
+if [ grep -q "${TRAVIS_BUILD_NUMBER}" ]
+then
+  BUILD_ID="${TRAVIS_BUILD_NUMBER}"
 
-ls -lha "${ROOT_DIR}"
+elif
 
-printf "\nSCRIPT_DIR\n"
+if [ grep -q "${CI_JOB_ID}"]
+then
+  BUILD_ID="${CI_JOB_ID}"
 
-ls -lha "${SCRIPT_DIR}"
-
-printf "\nSOURCE_FILE\n"
-
-ls -lha "${SOURCE_FILE}"
+else
+  printf "\nNo build ID could be found. We are probably running in manual mode\n"
+  exit 1
+if
 
 ## Whitelist.... there are none
 #whitelist="whitelist.txt"
