@@ -3,14 +3,15 @@
 # **********************
 # Setting date variables
 # **********************
+printf "\nSetting Variables\n"
 
 TEST_FILE="rpz.mypdns.cloud.list"
 
 testfile="${testdir}/${TEST_FILE}"
 
-#ls -lha "${ROOT_DIR}"
+ls -lha "${ROOT_DIR}"
 
-#ls -lha "${testfile}"
+ls -lha "${testfile}"
 
 ## Whitelist.... there are none
 #whitelist="whitelist.txt"
