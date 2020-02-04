@@ -22,7 +22,9 @@ testdir="${ROOT_DIR}/test_data"
 
 testfile_in="rpz.mypdns.cloud.list"
 
-testfile=${testdir}/${testfile_in}"
+testfile="${testdir}/${testfile_in}"
+
+ls -lha "${ROOT_DIR}"
 
 ls -lha "${testfile}"
 
