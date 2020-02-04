@@ -27,12 +27,12 @@ SCRIPT_DIR="${ROOT_DIR}/scripts"
 TEST_DIR="${ROOT_DIR}/test_data"
 
 SOURCE_FILE="${testdir}/${TEST_FILE}"
-
+printf "\nROOT_DIR\n"
 ls -lha "${ROOT_DIR}"
-
+printf "\nSCRIPT_DIR\n"
 ls -lha "${SCRIPT_DIR}"
 
-
+printf "\nSOURCE_FILE\"
 ls -lha "${SOURCE_FILE}"
 
 ## Whitelist.... there are none
