@@ -13,11 +13,12 @@
 # **********************
 # Setting date variables
 # **********************
-#printf "\nSetting Variables\n"
+printf "\nImporting Variables\n"
 source "${ROOT_DIR}/scripts/variables.sh"
 
+printf "\nList Variables\n"
 ls -lha "${ROOT_DIR}/scripts/variables.sh"
-
+printf "\nList Variables\n"
 ls -lha "${SCRIPT_DIR}/variables.sh"
 
 # ******************
