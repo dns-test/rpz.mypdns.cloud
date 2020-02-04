@@ -19,8 +19,8 @@ ROOT_DIR="$(dirname "$SCRIPT_PATH")"
 printf "\nSetting Variables\n"
 echo "script_dir='${ROOT_DIR}/scripts'"
 echo "testdir='${ROOT_DIR}/test_data'"
-echo "testfile='${testdir}/rpz.mypdns.cloud.list'"
-echo "whitelist='${testdir}/whitelist.txt'"
+echo -e "testfile='${testdir}/rpz.mypdns.cloud.list'"
+echo -e "whitelist='${testdir}/whitelist.txt'"
 echo "tag=$(date '+%F %X %Z %z')"
 
 #MySqlImport () {
