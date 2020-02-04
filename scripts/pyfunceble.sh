@@ -13,7 +13,7 @@
 # **********************
 # Setting date variables
 # **********************
-#source "${TRAVIS_BUILD_DIR}/scripts/variables.sh"
+source "${ROOT_DIR}/scripts/variables.sh"
 
 printf "\nLists testfile\n"
 ls -lha "${testfile}"
