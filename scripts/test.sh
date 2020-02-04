@@ -14,7 +14,7 @@
 # Setting date variables
 # **********************
 printf "\nImporting Variables\n"
-source "${ROOT_DIR}/scripts/variables.sh"
+source "./variables.sh"
 
 printf "\nList Variables\n"
 ls -lha "${ROOT_DIR}/scripts/variables.sh"
