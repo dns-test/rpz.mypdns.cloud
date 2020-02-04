@@ -22,14 +22,15 @@ echo "export testdir='${ROOT_DIR}/test_data'"
 
 testdir="${ROOT_DIR}/test_data"
 
-testfile="${testdir}/rpz.mypdns.cloud.list"
-echo "testfile='${testfile}'"
+testfile="rpz.mypdns.cloud.list"
+echo "testfile='${testdir}/${testfile}'"
 
-#whitelist="${testdir}/whitelist.txt"
+## Whitelist.... there are none
+#whitelist="whitelist.txt"
 #echo "whitelist='${whitelist}'"
-echo "whitelist=$('${testdir}/whitelist.txt')"
+#echo "whitelist=$('${testdir}/${whitelist}')"
 
-echo -e "tag=$(date '+%F %T %Z %z')"
+echo -e "tag="$(date '+%F %T %Z %z')""
 
 #MySqlImport () {
 #	printf "\nMySql import...\n"
