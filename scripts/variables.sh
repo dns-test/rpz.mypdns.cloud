@@ -5,25 +5,26 @@
 # **********************
 
 # First setup the working dir
-pushd . > /dev/null
-SCRIPT_PATH="${BASH_SOURCE[0]}";
-if ([ -h "${SCRIPT_PATH}" ]) then
-  while([ -h "${SCRIPT_PATH}" ]) do cd `dirname "$SCRIPT_PATH"`; SCRIPT_PATH=`readlink "${SCRIPT_PATH}"`; done
-fi
-cd `dirname ${SCRIPT_PATH}.` > /dev/null
-SCRIPT_PATH=`pwd`;
-popd  > /dev/null
+#pushd . > /dev/null
+#SCRIPT_PATH="${BASH_SOURCE[0]}";
+#if ([ -h "${SCRIPT_PATH}" ]) then
+#  while([ -h "${SCRIPT_PATH}" ]) do cd `dirname "$SCRIPT_PATH"`; SCRIPT_PATH=`readlink "${SCRIPT_PATH}"`; done
+#fi
+#cd `dirname ${SCRIPT_PATH}.` > /dev/null
+#SCRIPT_PATH=`pwd`;
+#popd  > /dev/null
 
-ROOT_DIR="$(dirname "$SCRIPT_PATH")"
+#ROOT_DIR="$(dirname "$SCRIPT_PATH")"
 
 printf "\nSetting Variables\n"
-echo "export script_dir='${ROOT_DIR}/scripts'"
-echo "export testdir='${ROOT_DIR}/test_data'"
-
+script_dir="${ROOT_DIR}/scripts"
 testdir="${ROOT_DIR}/test_data"
 
-testfile="rpz.mypdns.cloud.list"
-echo "export testfile='${testdir}/${testfile}'"
+testfile_in="rpz.mypdns.cloud.list"
+
+testfile=${testdir}/${testfile_in}"
+
+ls -lha "${testfile}"
 
 ## Whitelist.... there are none
 #whitelist="whitelist.txt"
