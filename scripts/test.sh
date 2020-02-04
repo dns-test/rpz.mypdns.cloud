@@ -16,10 +16,6 @@
 printf "\nImporting Variables\n"
 source "scripts/variables.sh"
 
-#printf "\nList Variables\n"
-#ls -lha "${ROOT_DIR}/scripts/variables.sh"
-#printf "\nList Variables\n"
-#ls -lha "${SCRIPT_DIR}/variables.sh"
 
 # ******************
 # Database functions

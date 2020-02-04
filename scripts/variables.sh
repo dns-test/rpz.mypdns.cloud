@@ -26,14 +26,14 @@ SCRIPT_DIR="${ROOT_DIR}/scripts"
 
 TEST_DIR="${ROOT_DIR}/test_data"
 
-testfile="${testdir}/${TEST_FILE}"
+SOURCE_FILE="${testdir}/${TEST_FILE}"
 
 ls -lha "${ROOT_DIR}"
 
 ls -lha "${SCRIPT_DIR}"
 
 
-ls -lha "${testfile}"
+ls -lha "${SOURCE_FILE}"
 
 ## Whitelist.... there are none
 #whitelist="whitelist.txt"
