@@ -23,6 +23,9 @@ env:
     - TZ: UTC
     - PYFUNCEBLE_AUTO_CONFIGURATION: YES
     - ROOT_DIR: "${TRAVIS_BUILD_DIR}"
+    - testdir: "${ROOT_DIR}/test_data"
+    - testfile_in: "rpz.mypdns.cloud.list"
+    - testfile: "${testdir}/${testfile_in}"
 
 addons:
   mariadb: '10.4'
