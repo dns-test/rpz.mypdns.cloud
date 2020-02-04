@@ -14,7 +14,7 @@
 # Setting date variables
 # **********************
 #printf "\nSetting Variables\n"
-source "${TRAVIS_BUILD_DIR}/scripts/variables.sh"
+source "${ROOT_DIR}/scripts/variables.sh"
 
 # ******************
 # Database functions
