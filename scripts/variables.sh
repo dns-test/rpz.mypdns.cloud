@@ -4,29 +4,13 @@
 # Setting date variables
 # **********************
 
-# First setup the working dir
-#pushd . > /dev/null
-#SCRIPT_PATH="${BASH_SOURCE[0]}";
-#if ([ -h "${SCRIPT_PATH}" ]) then
-#  while([ -h "${SCRIPT_PATH}" ]) do cd `dirname "$SCRIPT_PATH"`; SCRIPT_PATH=`readlink "${SCRIPT_PATH}"`; done
-#fi
-#cd `dirname ${SCRIPT_PATH}.` > /dev/null
-#SCRIPT_PATH=`pwd`;
-#popd  > /dev/null
+TEST_FILE="rpz.mypdns.cloud.list"
 
-#ROOT_DIR="$(dirname "$SCRIPT_PATH")"
+testfile="${testdir}/${TEST_FILE}"
 
-printf "\nSetting Variables\n"
-script_dir="${ROOT_DIR}/scripts"
-testdir="${ROOT_DIR}/test_data"
+#ls -lha "${ROOT_DIR}"
 
-testfile_in="rpz.mypdns.cloud.list"
-
-testfile="${testdir}/${testfile_in}"
-
-ls -lha "${ROOT_DIR}"
-
-ls -lha "${testfile}"
+#ls -lha "${testfile}"
 
 ## Whitelist.... there are none
 #whitelist="whitelist.txt"
