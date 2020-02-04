@@ -17,11 +17,11 @@ popd  > /dev/null
 ROOT_DIR="$(dirname "$SCRIPT_PATH")"
 
 printf "\nSetting Variables\n"
-export script_dir="${ROOT_DIR}/scripts"
-export testdir="${ROOT_DIR}/test_data"
-export testfile="${testdir}/rpz.mypdns.cloud.list"
-export whitelist="${testdir}/whitelist.txt"
-export tag=$(date '+%F %X %Z %z')
+echo "script_dir='${ROOT_DIR}/scripts'"
+echo "testdir='${ROOT_DIR}/test_data'"
+echo "testfile='${testdir}/rpz.mypdns.cloud.list'"
+echo "whitelist='${testdir}/whitelist.txt'"
+echo "tag=$(date '+%F %X %Z %z')"
 
 #MySqlImport () {
 #	printf "\nMySql import...\n"
