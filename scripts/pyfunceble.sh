@@ -13,7 +13,7 @@
 # **********************
 # Setting date variables
 # **********************
-source "${TRAVIS_BUILD_DIR}/scripts/variables.sh"
+#source "${TRAVIS_BUILD_DIR}/scripts/variables.sh"
 
 # **********************
 # Run PyFunceble Testing
@@ -23,7 +23,7 @@ printf "\nRunning PyFunceble\n"
 
 RunPyFunceble () {
 
-    tag=$(date '+%F %X %Z %z')
+    #tag=$(date '+%F %X %Z %z')
 
     cd "${script_dir}"
 
