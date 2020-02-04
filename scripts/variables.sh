@@ -3,13 +3,35 @@
 # **********************
 # Setting date variables
 # **********************
-printf "\nSetting Variables\n"
 
 TEST_FILE="rpz.mypdns.cloud.list"
+
+printf "\nSetting Variables\n"
+
+if [ -d "${TRAVIS_BUILD_DIR}" ]
+then
+  ROOT_DIR="${TRAVIS_BUILD_DIR}"
+
+elif [ -d "${CI_BUILDS_DIR}" ]
+then
+  ROOT_DIR="${CI_BUILDS_DIR}"
+
+else
+  printf "\nNo CI Dir found\n"
+  exit
+fi
+
+SCRIPT_DIR="${ROOT_DIR}/scripts"
+  
+
+TEST_DIR="${ROOT_DIR}/test_data"
 
 testfile="${testdir}/${TEST_FILE}"
 
 ls -lha "${ROOT_DIR}"
+
+ls -lha "${SCRIPT_DIR}"
+
 
 ls -lha "${testfile}"
 
