@@ -22,6 +22,7 @@ env:
     - TRAVIS_REPO_SLUG: ${TRAVIS_REPO_SLUG} #dns-test/rpz.mypdns.cloud
     - TZ: UTC
     - PYFUNCEBLE_AUTO_CONFIGURATION: YES
+    - source "${TRAVIS_BUILD_DIR}/scripts/variables.sh"
 
 addons:
   mariadb: '10.4'
