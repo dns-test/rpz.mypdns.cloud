@@ -15,6 +15,12 @@
 # **********************
 #source "${TRAVIS_BUILD_DIR}/scripts/variables.sh"
 
+printf "\nLists testfile\n"
+ls -lha "${testfile}"
+
+printf "\nHead testfile\n"
+head "${testfile}"
+
 # **********************
 # Run PyFunceble Testing
 # **********************
