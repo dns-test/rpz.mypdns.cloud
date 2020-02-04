@@ -15,7 +15,11 @@
 # **********************
 #printf "\nSetting Variables\n"
 source "${ROOT_DIR}/scripts/variables.sh"
+
 ls -lha "${ROOT_DIR}/scripts/variables.sh"
+
+ls -lha "${SCRIPT_DIR}/variables.sh"
+
 # ******************
 # Database functions
 # ******************
