@@ -25,7 +25,7 @@ echo "testfile='${testfile}'"
 
 #whitelist="${testdir}/whitelist.txt"
 #echo "whitelist='${whitelist}'"
-echo -e "$(whitelist="${testdir}/whitelist.txt")"
+echo -e "whitelist=$("${testdir}/whitelist.txt")"
 
 echo -e "tag=$(date '+%F %T %Z %z')"
 
