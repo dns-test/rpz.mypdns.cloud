@@ -17,7 +17,7 @@ testfile="${testdir}/${TEST_FILE}"
 #echo "whitelist='${whitelist}'"
 #echo "whitelist=$('${testdir}/${whitelist}')"
 
-echo -e "export tag="$(date '+%F %T %Z %z')""
+tag="$(date '+%F %T %Z %z')"
 
 #MySqlImport () {
 #	printf "\nMySql import...\n"
