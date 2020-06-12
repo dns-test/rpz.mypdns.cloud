@@ -33,23 +33,23 @@ printf "\nMySql Import DONE\n"
 # ***************
 printf "\nImporting AXFR\n"
 
-#AXFRImport () {
-	#truncate -s 0 "${SOURCE_FILE}"
+AXFRImport () {
+	truncate -s 0 "${SOURCE_FILE}"
 	
-    	#dig axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5353 +noidnin +noidnout \
-		#| grep -F "CNAME" | grep -vE "(^(\*\.|$))" \
-		#| sed 's/\.rpz\.mypdns\.cloud.*$//;s/^\s*\(.*[^ \t]\)\(\s\+\)*$/\1/' \
-		#> "${SOURCE_FILE}"
+    	drill axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5306 +noidnin +noidnout \
+		| grep -F "CNAME" | grep -vE "(^(\*\.|$))" \
+		| sed 's/\.rpz\.mypdns\.cloud.*$//;s/^\s*\(.*[^ \t]\)\(\s\+\)*$/\1/' \
+		> "${SOURCE_FILE}"
 
-	#printf "\nImporting AXFR... DONE!\n"
+	printf "\nImporting AXFR... DONE!\n"
 	##exit ${?}
-#}
-#AXFRImport
-
-ImportRPZ () {
-	mysql -u"${imp_user}" -p"${imp_pw}" -h"${imp_host}" -B -N -e "SELECT TRIM(TRAILING '.rpz.mypdns.cloud' FROM name) AS name FROM pdns.records WHERE \`type\` = 'CNAME' AND domain_id = '36' AND content = '.' LIMIT 10000000;" > "${SOURCE_FILE}"
 }
-ImportRPZ
+AXFRImport
+
+#ImportRPZ () {
+#	mysql -u"${imp_user}" -p"${imp_pw}" -h"${imp_host}" -B -N -e "SELECT TRIM(TRAILING '.rpz.mypdns.cloud' FROM name) AS name FROM pdns.records WHERE \`type\` = 'CNAME' AND domain_id = '36' AND content = '.' LIMIT 10000000;" > "${SOURCE_FILE}"
+#}
+#ImportRPZ
 
 printf "\nWe have to test $(wc -l < "${SOURCE_FILE}") DNS records.
 
