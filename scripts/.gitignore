@@ -1,0 +1,9 @@
+# Ignore any central scripts
+dns-test.sh
+setup_recursor.sh
+setup_miniconda.sh
+setup_travis.sh
+#requirements.txt
+
+# Miniconda
+miniconda.sh
