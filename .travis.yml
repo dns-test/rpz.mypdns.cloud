@@ -50,7 +50,7 @@ install:
   #- pip3 install pyfunceble-dev
   #- pip3 install ultimate-hosts-blacklist-whitelist
   - wget -O "${TRAVIS_BUILD_DIR}/setup_recursor.sh"
-    "${SCRIPT_SOURCE_URI}/travis/setup_recursor.sh" &&
+    "${SCRIPT_SOURCE_URI}/recursor/setup_recursor.sh" &&
     sudo chmod +x "${TRAVIS_BUILD_DIR}/setup_recursor.sh"
   - sudo bash "${TRAVIS_BUILD_DIR}/setup_recursor.sh"
 
