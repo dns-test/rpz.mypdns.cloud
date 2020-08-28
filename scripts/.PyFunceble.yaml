@@ -196,6 +196,7 @@ status:
         sane: SANE
         up: ACTIVE
         valid: VALID
+store_whois_record: false
 syntax: false
 timeout: 5
 unified: false
