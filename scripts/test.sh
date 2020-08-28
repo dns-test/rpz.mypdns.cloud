@@ -36,7 +36,7 @@ printf "\nImporting AXFR\n"
 AXFRImport () {
 	truncate -s 0 "${SOURCE_FILE}"
 	
-    	drill axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5306 +noidnin +noidnout \
+    	dig axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5306 +noidnin +noidnout \
 		| grep -F "CNAME" | grep -vE "(^(\*\.|$))" \
 		| sed 's/\.rpz\.mypdns\.cloud.*$//;s/^\s*\(.*[^ \t]\)\(\s\+\)*$/\1/' \
 		> "${SOURCE_FILE}"
