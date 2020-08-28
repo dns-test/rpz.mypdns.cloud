@@ -34,6 +34,11 @@ RunPyFunceble () {
         rm "${SCRIPT_DIR}/.PyFunceble_production.yaml"
     fi
 
+    if [[ -f "${SCRIPT_DIR/.PyFunceble-env}" ]]
+    then
+    	mv "${SCRIPT_DIR/.PyFunceble-env}" "${SCRIPT_DIR/.PyFunceble-env.bak}"
+    fi
+
     PyFunceble --version
     
     echo ""
@@ -41,7 +46,7 @@ RunPyFunceble () {
     PyFunceble --ci -q -ex --plain --idna -db -h --http \
 	--database-type mariadb -m -p $(nproc --ignore=1) \
         --hierarchical \
-        --autosave-minutes 35 \
+        --autosave-minutes 25 \
         --ci-branch master \
         --ci-distribution-branch master \
 	--cmd-before-end "bash ${SCRIPT_DIR}/commit.sh" \
