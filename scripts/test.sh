@@ -17,8 +17,8 @@ source "scripts/variables.sh"
 # ******************
 
 #MySqlImport
-printf "\nMySql import...\n"
-	sudo mysql -u root -h localhost -e "CREATE DATABASE pyfunceble DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+printf "\n\tSetup Local MariaDB...\n"
+	sudo mariadb -u root -h localhost -e "CREATE DATABASE pyfunceble DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 	sudo mysql -u root -h localhost -e "CREATE USER 'root'@'%' IDENTIFIED BY ''"
 	sudo mysql -u root -h localhost -e "CREATE USER 'pyfunceble'@'localhost' IDENTIFIED BY 'pyfunceble';"
 	sudo mysql -u root -h localhost -e "GRANT ALL PRIVILEGES ON pyfunceble.* TO 'pyfunceble'@'localhost';"
@@ -41,7 +41,7 @@ AXFRImport () {
 		| sed 's/\.rpz\.mypdns\.cloud.*$//;s/^\s*\(.*[^ \t]\)\(\s\+\)*$/\1/' \
 		> "${SOURCE_FILE}"
 
-	printf "\nImporting AXFR... DONE!\n"
+	printf "\n\tAXFR Importing... DONE!\n"
 	##exit ${?}
 }
 AXFRImport
@@ -54,7 +54,7 @@ AXFRImport
 printf "\nWe have to test $(wc -l < "${SOURCE_FILE}") DNS records.
 
 	You can read more about how to use this privacy enhanced
-	DNS firewall driven by Response Policy Zones at
+	DNS firewall, driven by Response Policy Zones at
 	https://www.mypdns.org/wiki/RpzList\n"
 
 #ImportWhiteList () {
