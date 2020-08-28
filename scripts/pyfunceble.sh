@@ -44,9 +44,8 @@ RunPyFunceble () {
     echo ""
     
     PyFunceble --ci -q -ex --plain --idna -db -h --http \
-	--database-type mariadb -m -p $(nproc --ignore=1) \
-        --hierarchical \
-        --autosave-minutes 25 \
+	--database-type mariadb -m --hierarchical \
+        --dns 127.0.0.1:5300 --autosave-minutes 25 \
         --ci-branch master \
         --ci-distribution-branch master \
 	--cmd-before-end "bash ${SCRIPT_DIR}/commit.sh" \
@@ -58,3 +57,5 @@ RunPyFunceble () {
 RunPyFunceble
 
 exit ${?}
+
+#  -p $(nproc --ignore=1)
