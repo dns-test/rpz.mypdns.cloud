@@ -4,13 +4,13 @@ language: python
 
 python:
   #- "3.7"
-  - "3.8.1"
+  - "3.8.5"
 
 cache:
   pip: true
   directories:
     - $HOME/db/
-    - ${TRAVIS_BUILD_DIR}/scripts/output/
+    #- ${TRAVIS_BUILD_DIR}/scripts/output/
 
 git:
   depth: 3
@@ -21,9 +21,11 @@ env:
     - GIT_EMAIL: "44526987+spirillen@users.noreply.github.com"
     - TRAVIS_REPO_SLUG: ${TRAVIS_REPO_SLUG} #dns-test/rpz.mypdns.cloud
     - TZ: UTC
+    - SCRIPT_SOURCE_URI: 'https://raw.githubusercontent.com/dns-test/script-hub/master'
+    - PYTHON_VERSION: 3.8.5
     - Pyfunceble_version: 'PyFunceble@raw2sqlalchemy'
-    - PYFUNCEBLE_CONFIG_DIR: "${TRAVIS_BUILD_DIR}/.pyfunceble/"
-    - PYFUNCEBLE_OUTPUT_LOCATION: "${TRAVIS_BUILD_DIR}/.pyfunceble/"
+    - PYFUNCEBLE_CONFIG_DIR: "${TRAVIS_BUILD_DIR}/scripts/"
+    - PYFUNCEBLE_OUTPUT_LOCATION: "${TRAVIS_BUILD_DIR}/scripts/"
     - PYFUNCEBLE_AUTO_CONFIGURATION: yes
     - PYFUNCEBLE_DB_CHARSET="${DB_CHARSET}"
     - PYFUNCEBLE_DB_HOST="${DB_HOST}"
@@ -39,14 +41,18 @@ addons:
       - dos2unix
       - msttcorefonts
       - lsof
-      - pdns-recursor
+      #- pdns-recursor
     update: true
   
 install:
   - pip3 install --upgrade pip
-  - pip3 install pyfunceble-dev
-  #- pip3 install git+https://github.com/funilrys/PyFunceble.git@dev
+  - pip3 install --no-cache-dir -U "git+https://github.com/funilrys/${Pyfunceble_version}"
+  #- pip3 install pyfunceble-dev
   #- pip3 install ultimate-hosts-blacklist-whitelist
+  - wget -O "${TRAVIS_BUILD_DIR}/setup_recursor.sh"
+    "${SCRIPT_SOURCE_URI}/travis/setup_recursor.sh" &&
+    sudo chmod +x "${TRAVIS_BUILD_DIR}/setup_recursor.sh"
+  - sudo bash "${TRAVIS_BUILD_DIR}/setup_recursor.sh"
 
 git:
   depth: 2
