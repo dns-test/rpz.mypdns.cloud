@@ -3,14 +3,12 @@ dist: bionic
 language: python
 
 python:
-  #- "3.7"
   - "3.8.5"
 
 cache:
   pip: true
   directories:
     - $HOME/db/
-    #- ${TRAVIS_BUILD_DIR}/scripts/output/
 
 git:
   depth: 3
@@ -71,5 +69,5 @@ script:
   #- sudo mysql -u root -h localhost -e "CREATE USER 'pyfunceble'@'localhost' IDENTIFIED BY 'pyfunceble';"
   #- sudo mysql -u root -h localhost -e "GRANT ALL PRIVILEGES ON pyfunceble.* TO 'pyfunceble'@'localhost';"
   #- sudo mysql --user=pyfunceble --password=pyfunceble pyfunceble < ${HOME}/db/pyfunceble.sql
-  - bash scripts/test.sh && bash scripts/pyfunceble.sh && sudo mkdir -p ${HOME}/db/ && sudo mariadb-dump --host=name="${DB_HOST}" --user="${DB_USERNAME}" --password="${DB_PASSWORD}" --opt "${DB_NAME}" > ${HOME}/db/pyfunceble.sql
+  - bash scripts/test.sh && bash scripts/pyfunceble.sh && sudo mkdir -p ${HOME}/db/ && sudo mariadb-dump --host="${DB_HOST}" --user="${DB_USERNAME}" --password="${DB_PASSWORD}" --opt "${DB_NAME}" > ${HOME}/db/pyfunceble.sql
   #- bash scripts/test.sh && bash scripts/pyfunceble.sh && sudo mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${HOME}/db/pyfunceble.sql
