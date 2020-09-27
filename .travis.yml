@@ -21,7 +21,7 @@ env:
     - TZ: UTC
     - SCRIPT_SOURCE_URI: 'https://raw.githubusercontent.com/dns-test/script-hub/master'
     - PYTHON_VERSION: 3.8.5
-    - Pyfunceble_version: 'PyFunceble@raw2sqlalchemy'
+    - Pyfunceble_version: 'PyFunceble@dev'
     - PYFUNCEBLE_CONFIG_DIR: "${TRAVIS_BUILD_DIR}/scripts/"
     - PYFUNCEBLE_OUTPUT_LOCATION: "${TRAVIS_BUILD_DIR}/scripts/"
     - PYFUNCEBLE_AUTO_CONFIGURATION: yes
@@ -44,8 +44,8 @@ addons:
   
 install:
   - pip3 install --upgrade pip
-  #- pip3 install --no-cache-dir -U "git+https://github.com/funilrys/${Pyfunceble_version}"
-  - pip3 install --no-cache-dir -U pyfunceble-dev
+  - pip3 install --no-cache-dir -U "git+https://github.com/funilrys/${Pyfunceble_version}"
+  #- pip3 install --no-cache-dir -U pyfunceble-dev
   #- pip3 install ultimate-hosts-blacklist-whitelist
   - wget -O "${TRAVIS_BUILD_DIR}/setup_recursor.sh"
     "${SCRIPT_SOURCE_URI}/recursor/setup_recursor.sh" &&
