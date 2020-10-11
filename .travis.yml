@@ -1,9 +1,9 @@
-dist: focal
+dist: bionic
 
-language: python
+language: generic #python
 
-python:
-  - "3.8.5"
+#python:
+#  - "3.8.5"
 
 cache:
   pip: true
