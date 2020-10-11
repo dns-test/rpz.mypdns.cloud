@@ -3,7 +3,7 @@ dist: bionic
 language: python
 
 python:
-  - "3.0.0"
+  - "3.9.0"
 
 cache:
   pip: true
