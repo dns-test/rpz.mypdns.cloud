@@ -4,4 +4,4 @@
 
 You can read more about how to use this privacy enhanced
 DNS firewall driven by Response Policy Zones at
-<https://www.mypdns.org/wiki/RpzList>
+<https://www.mypdns.org/w/rpzlist/>
