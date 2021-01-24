@@ -2,4 +2,3 @@
 #python-box[all]>=5.0.0
 ultimate-hosts-blacklist-whitelist-dev
 wheel
-pip
