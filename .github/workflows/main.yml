@@ -9,8 +9,8 @@ on:
 
 env:
   PYFUNCEBLE_AUTO_CONFIGURATION: "YES"
-  GIT_NAME: "${{ secrets.GIT_NAME }}"
-  GIT_EMAIL: "${{ secrets.GIT_EMAIL }}"
+  GIT_NAME: "${{ secrets.GIT_BOT_NAME }}"
+  GIT_EMAIL: "${{ secrets.GIT_BOT_EMAIL }}"
   PYFUNCEBLE_CONFIG_DIR: "${{ github.workspace }}/.pyfunceble"
   PYFUNCEBLE_OUTPUT_LOCATION: "${{ github.workspace }}/"
   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
