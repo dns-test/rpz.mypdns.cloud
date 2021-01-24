@@ -22,7 +22,9 @@ then
 elif [ -d "${CI_BUILDS_DIR}" ]
 then
   ROOT_DIR="${CI_BUILDS_DIR}"
-
+elif [ -d "${{ github.workspace }}"
+then
+  ROOT_DIR="${{ github.workspace }}"]
 else
   printf "\nNo CI Dir found\n"
   exit 1
@@ -66,7 +68,7 @@ tag="$(date '+%F %T %Z %z')"
 #	then
 #		mysql --user=pyfunceble --password=pyfunceble pyfunceble < "${HOME}/db/pyfunceble.sql"
 #	fi
-#	
+#
 #	printf "\nMySql Import DONE!\n"
 #
 #	exit ${?}

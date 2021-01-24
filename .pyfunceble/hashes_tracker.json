@@ -1,12 +1,12 @@
 {
     "/home/travis/build/dns-test/rpz.mypdns.cloud/test_data/rpz.mypdns.cloud.list": {
         "base": {
-            "datetime_iso": "2020-08-28T11:10:20.293339",
-            "hash": null
+            "datetime_iso": "2020-09-26T02:59:44.568875",
+            "hash": "b3abea7b73476ace2dc396b75c7dd9db696dc9ba395c5b3e9dadb6ce"
         },
         "latest": {
-            "datetime_iso": "2020-08-28T11:10:20.293339",
-            "hash": null
+            "datetime_iso": "2020-10-04T12:38:21.299767",
+            "hash": "b3abea7b73476ace2dc396b75c7dd9db696dc9ba395c5b3e9dadb6ce"
         },
         "position": 0
     }

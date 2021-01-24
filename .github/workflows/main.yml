@@ -1,0 +1,64 @@
+name: PyFunceble CI tests
+on:
+  schedule:
+    - cron: "30 * * * *"
+  push:
+    branches:
+      - "master"
+      - "test-run"
+
+env:
+  PYFUNCEBLE_AUTO_CONFIGURATION: "YES"
+  GIT_NAME: "${{ secrets.GIT_NAME }}"
+  GIT_EMAIL: "${{ secrets.GIT_EMAIL }}"
+  PYFUNCEBLE_CONFIG_DIR: "${{ github.workspace }}/.pyfunceble"
+  PYFUNCEBLE_OUTPUT_LOCATION: "${{ github.workspace }}/"
+  GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+  BUILD_NUMBER: "${{ github.run_number }}"
+
+jobs:
+  test_and_push:
+    name: Run PyFunceble against the files and push result to repository
+    runs-on: "${{ matrix.os }}"
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python_version:
+          - "3.9.1"
+        os:
+          - ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+        name: Clone repository
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python_version }}
+
+      - name: Install requirements
+        run: bash "${{ github.workspace }}/scripts/requirements.sh"
+
+      - name: Install PyFunceble
+        run: |
+          pip install --no-cache-dir -UI requirements.txt
+          pip install --no-cache-dir --pre PyFunceble-dev
+
+      - name: Get PyFunceble version
+        run: |
+          PyFunceble --version
+
+      - name: Importing zone true AXFR
+        run: |
+          drill axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5306 \
+          > "${{ github.workspace }}/test_data/rpz.mypdns.cloud.list"
+
+      - name: Run Domain tests
+        run: |
+          pyfunceble -ex \
+          -f "${{ github.workspace }}/test_data/rpz.mypdns.cloud.list" \
+          --rpz
