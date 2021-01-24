@@ -1,7 +1,7 @@
 name: PyFunceble CI tests
 on:
   schedule:
-    - cron: "30 * * * *"
+    - cron: "15 * * * *"
   push:
     branches:
       - "master"
@@ -55,17 +55,17 @@ jobs:
       # - name: Importing zone true AXFR
       #   run: |
       #     drill axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5306 \
-      #     | tee > "${{ github.workspace }}/test_data/rpz.mypdns.cloud.list"
+      #     | tee > "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list"
 
       - name: zone testing workaround for #206
         run: |
           drill axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5306 \
           | grep -F "CNAME" | grep -vE "(^(\*\.|$))" \
           | sed 's/\.rpz\.mypdns\.cloud.*$//;s/^\s*\(.*[^ \t]\)\(\s\+\)*$/\1/' \
-          | tee > "${{ github.workspace }}/test_data/rpz.mypdns.cloud.list"
+          | tee > "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list"
 
       - name: Run Domain tests # Workaround for https://github.com/funilrys/PyFunceble/issues/206
         run: |
           pyfunceble -ex \
-          -f "${{ github.workspace }}/test_data/rpz.mypdns.cloud.list" #\
+          -f "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list" #\
           # --rpz
