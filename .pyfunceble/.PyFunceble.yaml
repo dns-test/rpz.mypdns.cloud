@@ -27,7 +27,7 @@ cli_testing:
         execution_time: true
         less: true
         percentage: true
-        quiet: true
+        quiet: false
         simple: false
         status: all
     file_filter: ""
