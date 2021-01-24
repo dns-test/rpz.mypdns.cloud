@@ -1,4 +1,4 @@
-#PyFunceble-dev>=4.0.0
-#python-box[all]>=5.0.0
+PyFunceble-dev>=4.0.0
+python-box[all]>=5.0.0
 ultimate-hosts-blacklist-whitelist-dev
 wheel
