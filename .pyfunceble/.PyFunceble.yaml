@@ -4,7 +4,7 @@ auto_continue: true
 ci: true
 ci_autosave_commit: My Privacy DNS - AutoSave
 ci_autosave_final_commit: My Privacy DNS - Results
-ci_autosave_minutes: 45
+ci_autosave_minutes: 5
 ci_branch: "test-run"
 ci_distribution_branch: master
 command: ""
