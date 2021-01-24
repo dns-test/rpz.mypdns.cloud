@@ -52,13 +52,20 @@ jobs:
         run: |
           PyFunceble --version
 
-      - name: Importing zone true AXFR
+      # - name: Importing zone true AXFR
+      #   run: |
+      #     drill axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5306 \
+      #     | tee > "${{ github.workspace }}/test_data/rpz.mypdns.cloud.list"
+
+      - name: zone testing workaround for #206
         run: |
           drill axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5306 \
+          | grep -F "CNAME" | grep -vE "(^(\*\.|$))" \
+          | sed 's/\.rpz\.mypdns\.cloud.*$//;s/^\s*\(.*[^ \t]\)\(\s\+\)*$/\1/' \
           | tee > "${{ github.workspace }}/test_data/rpz.mypdns.cloud.list"
 
-      - name: Run Domain tests
+      - name: Run Domain tests # Workaround for https://github.com/funilrys/PyFunceble/issues/206
         run: |
           pyfunceble -ex \
-          -f "${{ github.workspace }}/test_data/rpz.mypdns.cloud.list" \
-          --rpz
+          -f "${{ github.workspace }}/test_data/rpz.mypdns.cloud.list" #\
+          # --rpz
