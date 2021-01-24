@@ -52,6 +52,9 @@ jobs:
         run: |
           PyFunceble --version
 
+      - name: Create test source dir.
+        run: mkdir -p "${{ github.workspace }}/no_git/"
+
       # - name: Importing zone true AXFR
       #   run: |
       #     drill axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5306 \
