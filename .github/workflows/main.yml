@@ -41,7 +41,7 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Install requirements
-        run: bash "${{ github.workspace }}/scripts/requirements.sh"
+        run: sudo bash "${{ github.workspace }}/scripts/requirements.sh"
 
       - name: Install PyFunceble
         run: |
@@ -55,7 +55,7 @@ jobs:
       - name: Importing zone true AXFR
         run: |
           drill axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5306 \
-          > "${{ github.workspace }}/test_data/rpz.mypdns.cloud.list"
+          | tee > "${{ github.workspace }}/test_data/rpz.mypdns.cloud.list"
 
       - name: Run Domain tests
         run: |
