@@ -1,7 +1,7 @@
 cli_decoding:
     adblock: false
     adblock_aggressive: false
-    rpz: false
+    rpz: true
     wildcard: false
 cli_testing:
     autocontinue: true
