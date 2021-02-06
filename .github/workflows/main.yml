@@ -1,37 +1,37 @@
 name: PyFunceble CI tests
 on:
   schedule:
-    - cron: "15 * * * *"
+    - cron: '15 * * * *'
   push:
     branches:
-      - "master"
-      - "test-run"
+      - 'master'
+      - 'test-run'
 
 env:
-  PYFUNCEBLE_AUTO_CONFIGURATION: "YES"
-  GIT_NAME: "${{ secrets.GIT_BOT_NAME }}"
-  GIT_EMAIL: "${{ secrets.GIT_BOT_EMAIL }}"
-  GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-  BUILD_NUMBER: "${{ github.run_number }}"
-  PYFUNCEBLE_CONFIG_DIR: "${{ github.workspace }}/pyfunceble"
-  PYFUNCEBLE_OUTPUT_LOCATION: "${{ github.workspace }}/"
-  PYFUNCEBLE_DB_CHARSET: "${{ secrets.MYPDNS_DB_CHAR }}"
-  PYFUNCEBLE_DB_HOST: "${{ secrets.MYPDNS_DB_HOST }}"
-  PYFUNCEBLE_DB_NAME: "${{ secrets.MYPDNS_DB_NAME }}"
-  PYFUNCEBLE_DB_PASSWORD: "${{ secrets.MYPDNS_DB_PASS }}"
-  PYFUNCEBLE_DB_PORT: "${{ secrets.MYPDNS_DB_PORT }}"
-  PYFUNCEBLE_DB_USERNAME: "${{ secrets.MYPDNS_DB_USER }}"
+  PYFUNCEBLE_AUTO_CONFIGURATION: 'YES'
+  GIT_NAME: '${{ secrets.GIT_BOT_NAME }}'
+  GIT_EMAIL: '${{ secrets.GIT_BOT_EMAIL }}'
+  GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+  BUILD_NUMBER: '${{ github.run_number }}'
+  PYFUNCEBLE_CONFIG_DIR: '${{ github.workspace }}/pyfunceble'
+  PYFUNCEBLE_OUTPUT_LOCATION: '${{ github.workspace }}/'
+  PYFUNCEBLE_DB_CHARSET: '${{ secrets.MYPDNS_DB_CHAR }}'
+  PYFUNCEBLE_DB_HOST: '${{ secrets.MYPDNS_DB_HOST }}'
+  PYFUNCEBLE_DB_NAME: '${{ secrets.MYPDNS_DB_NAME }}'
+  PYFUNCEBLE_DB_PASSWORD: '${{ secrets.MYPDNS_DB_PASS }}'
+  PYFUNCEBLE_DB_PORT: '${{ secrets.MYPDNS_DB_PORT }}'
+  PYFUNCEBLE_DB_USERNAME: '${{ secrets.MYPDNS_DB_USER }}'
 
 jobs:
   test_and_push:
     name: Run PyFunceble against the files and push result to repository
-    runs-on: "${{ matrix.os }}"
+    runs-on: '${{ matrix.os }}'
 
     strategy:
       fail-fast: false
       matrix:
         python_version:
-          - "3.9.1"
+          - '3.9.1'
         os:
           - ubuntu-latest
 
@@ -61,7 +61,7 @@ jobs:
       - name: Create test source dir.
         run: mkdir -p "${{ github.workspace }}/no_git/"
 
-      - name: Importing zone true AXFR
+      - name: Importing zone through AXFR
         run: |
           #drill axfr rpz.mypdns.cloud @axfr.ipv4.mypdns.cloud -p 5306 \
           #| tee > "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list"
@@ -80,4 +80,3 @@ jobs:
           pyfunceble -ex --rpz --ci -q --dots --plain -c --preload \
           --ci-max-minutes 45 \
           -f "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list" \
-
