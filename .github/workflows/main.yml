@@ -15,6 +15,9 @@ env:
   BUILD_NUMBER: '${{ github.run_number }}'
   PYFUNCEBLE_CONFIG_DIR: '${{ github.workspace }}/pyfunceble'
   PYFUNCEBLE_OUTPUT_LOCATION: '${{ github.workspace }}/'
+  PYFUNCEBLE_DEBUG: True
+  PYFUNCEBLE_DEBUG_LVL: DEBUG
+  PYFUNCEBLE_DEBUG_ON_SCREEN: True
   PYFUNCEBLE_DB_CHARSET: '${{ secrets.MYPDNS_DB_CHAR }}'
   PYFUNCEBLE_DB_HOST: '${{ secrets.MYPDNS_DB_HOST }}'
   PYFUNCEBLE_DB_NAME: '${{ secrets.MYPDNS_DB_NAME }}'
