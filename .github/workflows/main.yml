@@ -84,5 +84,5 @@ jobs:
 
       - name: Run Domain tests # Workaround for https://github.com/funilrys/PyFunceble/issues/206
         run: |
-          pyfunceble -ex \
+          pyfunceble \
           -f "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list" \
