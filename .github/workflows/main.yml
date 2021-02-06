@@ -79,4 +79,4 @@ jobs:
         run: |
           pyfunceble -ex \
           -f "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list" \
-          --rpz
+          --rpz --ci -q --dots
