@@ -75,7 +75,11 @@ jobs:
       #     | sed 's/\.rpz\.mypdns\.cloud.*$//;s/^\s*\(.*[^ \t]\)\(\s\+\)*$/\1/' \
       #     | tee > "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list"
 
+      - name: Print pyfunceble.yml
+        run: |
+          cat "$PYFUNCEBLE_CONFIG_DIR/.PyFunceble.yaml"
+
       - name: Run Domain tests # Workaround for https://github.com/funilrys/PyFunceble/issues/206
         run: |
-          pyfunceble \
+          pyfunceble -ex --ci-max-minutes 45 \
           -f "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list" \
