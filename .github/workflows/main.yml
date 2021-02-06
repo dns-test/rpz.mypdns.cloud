@@ -16,8 +16,8 @@ env:
   PYFUNCEBLE_CONFIG_DIR: '${{ github.workspace }}/pyfunceble'
   PYFUNCEBLE_OUTPUT_LOCATION: '${{ github.workspace }}/'
   PYFUNCEBLE_DEBUG: True
-  PYFUNCEBLE_DEBUG_LVL: DEBUG
-  PYFUNCEBLE_DEBUG_ON_SCREEN: True
+  PYFUNCEBLE_DEBUG_LVL: critical
+  PYFUNCEBLE_DEBUG_ON_SCREEN: false
   PYFUNCEBLE_DB_CHARSET: '${{ secrets.MYPDNS_DB_CHAR }}'
   PYFUNCEBLE_DB_HOST: '${{ secrets.MYPDNS_DB_HOST }}'
   PYFUNCEBLE_DB_NAME: '${{ secrets.MYPDNS_DB_NAME }}'
@@ -84,5 +84,5 @@ jobs:
 
       - name: Run Domain tests # Workaround for https://github.com/funilrys/PyFunceble/issues/206
         run: |
-          pyfunceble -ex --ci-max-minutes 45 \
+          pyfunceble -ex \
           -f "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list" \
