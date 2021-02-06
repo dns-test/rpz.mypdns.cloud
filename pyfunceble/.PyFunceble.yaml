@@ -45,7 +45,7 @@ cli_testing:
     preload_file: false
     sorting_mode:
         hierarchical: true
-        standard: false
+        standard: true
     testing_mode:
         availability: true
         reputation: false
