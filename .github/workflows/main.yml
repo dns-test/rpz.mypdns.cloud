@@ -13,7 +13,7 @@ env:
   GIT_EMAIL: "${{ secrets.GIT_BOT_EMAIL }}"
   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
   BUILD_NUMBER: "${{ github.run_number }}"
-  PYFUNCEBLE_CONFIG_DIR: "${{ github.workspace }}./.pyfunceble"
+  PYFUNCEBLE_CONFIG_DIR: "${{ github.workspace }}/pyfunceble"
   PYFUNCEBLE_OUTPUT_LOCATION: "${{ github.workspace }}/"
   PYFUNCEBLE_DB_CHARSET: "${{ secrets.MYPDNS_DB_CHAR }}"
   PYFUNCEBLE_DB_HOST: "${{ secrets.MYPDNS_DB_HOST }}"
@@ -77,6 +77,7 @@ jobs:
 
       - name: Run Domain tests # Workaround for https://github.com/funilrys/PyFunceble/issues/206
         run: |
-          pyfunceble -ex \
+          pyfunceble -ex --rpz --ci -q --dots --plain -c --preload \
+          --ci-max-minutes 45 \
           -f "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list" \
-          --rpz --ci -q --dots
+
