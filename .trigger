@@ -1,5 +1,5 @@
-.A....II...A....I.....AI.AII.II..IIIIII.IIIIIIIIIIIIIIIIIIIIIIIIIII.IIIIIIIII..IIIIIIIIIIIIIIIIIIII..IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.....A...I...III..II...I......................II....IIII..I..IIII.......IIII.I...........................
-Execution Time: 00:00:45:32.628876
+......II...A....I......I..II.II..IIIIII.IIIIIIIIIIIIIIIIIIIIIIIIIII.IIIIIIIII..IIIIIIIIIIIIIIIIIIII..IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.........I...III..II...I......................II....IIII..I..IIII.......IIII.I.........................
+Execution Time: 00:00:45:10.228754
 
 date +%s
 warning: LF will be replaced by CRLF in .trigger.
