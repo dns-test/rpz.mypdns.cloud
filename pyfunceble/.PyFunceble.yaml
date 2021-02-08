@@ -19,7 +19,7 @@ cli_testing:
     days_between:
         db_clean: 180
         db_retest: 1
-    db_type: csv
+    db_type: mariadb
     display_mode:
         all: true
         colour: true
