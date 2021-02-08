@@ -86,4 +86,4 @@ jobs:
         run: |
           pyfunceble \
           -f "${{ github.workspace }}/no_git/rpz.mypdns.cloud.list" \
-           --ci-command "echo $(date +'%s')" > "${{ github.workspace }}/.trigger"
+           --ci-command "echo $(date +'%s')" > "${{ github.workspace }}/.trigger && git add ."
