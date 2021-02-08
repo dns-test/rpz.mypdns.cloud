@@ -15,8 +15,8 @@ env:
   BUILD_NUMBER: '${{ github.run_number }}'
   PYFUNCEBLE_CONFIG_DIR: '${{ github.workspace }}/pyfunceble'
   PYFUNCEBLE_OUTPUT_LOCATION: '${{ github.workspace }}/'
-  PYFUNCEBLE_DEBUG: True
-  PYFUNCEBLE_DEBUG_LVL: debug
+  # PYFUNCEBLE_DEBUG: True
+  # PYFUNCEBLE_DEBUG_LVL: debug
   #PYFUNCEBLE_DEBUG_ON_SCREEN: false
   PYFUNCEBLE_DB_CHARSET: '${{ secrets.MYPDNS_DB_CHAR }}'
   PYFUNCEBLE_DB_HOST: '${{ secrets.MYPDNS_DB_HOST }}'
@@ -36,7 +36,7 @@ jobs:
         python_version:
           - '3.9.1'
         os:
-          - ubuntu-latest
+          - ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
@@ -48,6 +48,23 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python_version }}
+
+      - name: Setup conda
+        uses: s-weigand/setup-conda@v1.0.5
+        with:
+          python-version: 3.9.1
+          activate-conda: true
+          update-conda: true
+
+      - name: Conda environment creation
+        run: |
+          conda create -q -n pyfunceble4
+          source activate pyfunceble4
+      - name: Python version
+        run: python --version
+
+      - name: Conda version
+        run: conda --version
 
       - name: Install requirements
         run: sudo bash "${{ github.workspace }}/scripts/requirements.sh"
