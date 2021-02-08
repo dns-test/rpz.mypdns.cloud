@@ -1,6 +1,5 @@
-New version available.
-.A....II...A....I.....AI.AII.II..IIIIII.IIIIIIIIIIIIIIIIIIIIIIIIIII.IIIIIIIII..IIIIIIIIIIIIIIIIIIII..IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.....A...I.A.III..II...I......................II....IIII..I..IIII.......IIII.I............................
-Execution Time: 00:00:45:35.555821
+......II...A....I......I..II.II..IIIIII.IIIIIIIIIIIIIIIIIIIIIIIIIII.IIIIIIIII..IIIIIIIIIIIIIIIIIIII..IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.........I...III..II...I......................II....IIII..I..IIII.......IIII.I........................
+Execution Time: 00:00:45:11.422502
 
 
 warning: LF will be replaced by CRLF in .trigger.
